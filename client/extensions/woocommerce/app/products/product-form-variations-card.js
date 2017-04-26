@@ -13,8 +13,11 @@ import FormToggle from 'components/forms/form-toggle';
 
 const ProductFormVariationsCard = ( { product, editProduct, translate, editProductAttribute } ) => {
 	const handleToggle = () => {
-		const type = 'variable' !== product.type ? 'variable' : 'simple';
-		editProduct( product, { type } );
+		if ( 'variable' !== product.type ) {
+			editProduct( product, { type: 'variable' } );
+		} else {
+			editProduct( product, { type: 'simple', attributes: null } );
+		}
 	};
 
 	const variationToggleDescription = translate(
