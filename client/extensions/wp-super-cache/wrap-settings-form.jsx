@@ -121,6 +121,7 @@ const wrapSettingsForm = getFormSettings => SettingsForm => {
 			} = this.props;
 
 			if ( isTesting && ! prevProps.isTesting ) {
+				this.props.removeNotice( 'wpsc-settings-save' );
 				this.props.infoNotice(
 					translate( 'Testing cache on %(site)s.', { args: { site: site && site.title } } ),
 					{ id: 'wpsc-cache-test' }
